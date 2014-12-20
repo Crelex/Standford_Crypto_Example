@@ -1,0 +1,129 @@
+﻿/*Angular Styles*/
+.formValidation input.ng-invalid.ng-dirty {
+    border-color: #b94a48;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-image: url('../Images/form-input-prompt-sprite.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.formValidation input.ng-valid.ng-dirty {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-image: url('../Images/form-input-prompt-sprite.jpg');
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+/*.formValidation input.ng-invalid.ng-submitted{
+        border-color: #b94a48;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background-image: url('../Images/form-input-prompt-sprite.jpg');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    width: 100%;
+}*/
+
+.DrivingSubHeader{
+    background-color:#B0934F;
+    padding:0.5em;
+    font-weight: 600;
+    /*margin-bottom:1em;*/
+    margin:1em;
+}
+
+.remove-btn:hover {
+    color: red;
+}
+
+.edit-btn:hover {
+    color: green;
+}
+/*ui-grid css*/
+.myGrid {
+    width: 500px;
+    height: 250px;
+  }
+/*BootStrap Overrides*/
+.btn-warning.active {
+    color: black;
+}
+
+.btn-yesOrNo {
+    width: 83px;
+    font-size: large;
+}
+
+.red {
+    color: red;
+}
+.warningBox{
+    border-color:red;
+    border-style:solid;
+    padding:0.5em;
+    margin-bottom:1em;
+    margin-top:1em;
+}
+.green {
+    color: green;
+    font-weight: bolder;
+}
+
+.question {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.subQuestion {
+    font-size: 14px;
+    font-weight: 600;
+}
+.rowVertSpacer{
+    padding-top:1em;
+    padding-bottom:1em;
+}
+.rowSpacer {
+padding:1em;
+}
+.vertFieldSpacer {
+    padding-top: 1em;
+}
+
+.ApplicationHeader {
+    background-color: #e0b321;
+    font-size: large;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top:2em;
+}
+
+.SubHeader {
+    background-color: #B0934F;
+    font-size: large;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.5em;
+    padding-left: 1em;
+    padding-top: 0.3em;
+    padding-bottom: .3em;
+}
+.SubHeader-btn{
+    margin-right:1em;
+}
+
+body {
+    background-color: #eeebaa;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}

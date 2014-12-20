@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="PersonalController as ctrl">
+    <div class="container" ng-controller="PersonalController as ctrl">
+        <form name="personalForm" class="formValidation" ng-submit="ctrl.gotoNext();">
+            <div class="ApplicationHeader"><span class="icon-users"></span>Your Personal Information</div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>First Name</p>
+                    <input type="text"
+                           class="form-control"
+                           name="firstName"
+                           ng-model="ctrl.tslApplication.personalForm.firstName"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="First Name"
+                           tabindex="1"
+                           required>
+                    <!--<div ng-messages="personalForm.firstName.$error" ng-messages-include="/Templates/messages.html"></div>-->
+                </div>
+
+                <div class="col-sm-4">
+                    <p>Middle Name <span>(Optional)</span></p>
+                    <input type="text"
+                           class="form-control"
+                           name="middleName"
+                           ng-model="ctrl.tslApplication.personalForm.middleName"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Middle Name"
+                           tabindex="2">
+                </div>
+                <div class="col-sm-4">
+                    <p>Last Name</p>
+                    <input type="text"
+                           class="form-control"
+                           name="lastName"
+                           ng-model="ctrl.tslApplication.personalForm.lastName"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Last Name"
+                           tabindex="3"
+                           required>
+                </div>
+                <div class="col-sm-4" ng-hide="!ctrl.isDriver;">
+                    <p>Birth Date</p>
+                    <input type="text"
+                           class="form-control"
+                           xdsoft-date-time format="m/d/Y" time-picker=false
+                           name="birthday"
+                           ng-model="ctrl.tslApplication.personalForm.birthDay"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Example: 9/12/1983"
+                           tabindex="4"
+                           ng-required="ctrl.isDriver" />
+                </div>
+            </div>
+
+            <!--<hr style="border-color:black;"/>-->
+            <hr style="border-color:black;" ng-hide="!ctrl.isDriver;" />
+            <br />
+            <div class="row rowVertSpacer">
+                <div class="col-sm-7">
+                    <p>Home Address</p>
+                    <input type="text"
+                           class="form-control"
+                           name="streetAddress"
+                           ng-model="ctrl.tslApplication.personalForm.streetAddress"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Example: 1001 S. Main Street"
+                           tabindex="7"
+                           required>
+                </div>
+
+                <div class="col-sm-5">
+                    <p>Apartment Number <span>(Optional)</span></p>
+                    <input type="text"
+                           class="form-control"
+                           name="aptNumber"
+                           ng-model="ctrl.tslApplication.personalForm.aptNumber"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Example: #019"
+                           tabindex="8">
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row rowVertSpacer">
+                <div class="col-sm-4">
+                    <p>City</p>
+                    <input type="text"
+                           class="form-control"
+                           name="city"
+                           ng-model="ctrl.tslApplication.personalForm.city"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Example: Chicago"
+                           tabindex="10"
+                           required>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <p>State</p>
+                    <!--<div ng-class="{warningBox: personalForm.$submitted && ctrl.tslApplication.personalForm.state==null}">
+                        <ui-select ng-model="ctrl.tslApplication.personalForm.state"
+                                   theme="bootstrap"
+                                   tabindex="11"
+                                   required>
+                            <ui-select-match placeholder="Select your state..">{{ctrl.tslApplication.personalForm.state}}</ui-select-match>
+                            <ui-select-choices repeat="state in ctrl.states | filter: $select.search">
+                                <div ng-bind-html="state | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>-->
+                </div>
+
+                <div class="col-sm-4">
+                    <p>Zip Code</p>
+                    <input type="text"
+                           class="form-control"
+                           name="zipCode"
+                           ui-mask="99999"
+                           ng-model="ctrl.tslApplication.personalForm.zip"
+                           ng-model-options="{updateOn: 'blur'}"
+                           placeholder="Example: 68144"
+                           tabindex="12"
+                           required>
+                </div>
+            </div>
+            <br />
+
+            <br />
+
+
+            <button tabindex="13" type="button" class="btn btn-default pull-left" ng-click="ctrl.gotoPrevious();"><span style="vertical-align:middle" class="glyphicon glyphicon-chevron-left"></span> Prev Page</button>
+            <button tabindex="14" type="submit" class="btn btn-default pull-right">Next Page <span style="vertical-align:middle" class="glyphicon glyphicon-chevron-right"></span></button>
+        </form>
+    </div>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/ngStorage.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/PersonalController.js"></script>
+    <script src="js/sjcl.js"></script>
+</body>
+</html>
