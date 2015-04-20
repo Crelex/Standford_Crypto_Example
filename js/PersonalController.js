@@ -4,9 +4,9 @@
     angular.module('app')
             .controller('PersonalController', PersonalController);
 
-    PersonalController.$inject = ['$location', '$localStorage', '$scope'];
+    PersonalController.$inject = ['$location', 'storageFactory', '$scope'];
 
-    function PersonalController($location, localStorage, $scope) {
+    function PersonalController($location, storageFactory, $scope) {
         var self = this;
 
         if (localStorage.TSLApplication === undefined)
@@ -19,12 +19,17 @@
         };
 
         self.LoadLocalData = function () {
-            if (localStorage.TSLApplication) {
-                if(localStorage.TSLApplication.PersonalForm.firstName)
-                {
-                    self.tslApplication.personalForm.firstName = sjcl.decrypt("password", localStorage.TSLApplication.PersonalForm.firstName);
-                }
-            }
+            self.tslApplication.personalForm.firstName = storageFactory.retrive('firstName');
+            
+
+
+
+            // if (localStorage.TSLApplication) {
+            //     if(localStorage.TSLApplication.PersonalForm.firstName)
+            //     {
+            //         self.tslApplication.personalForm.firstName = sjcl.decrypt("password", localStorage.TSLApplication.PersonalForm.firstName);
+            //     }
+            // }
         };
 
         self.gotoPrevious = function () {
@@ -45,7 +50,10 @@
             return this.tslApplication.personalForm;
         }), function (newVal) {
             if (newVal.firstName) {
-                localStorage.TSLApplication.PersonalForm.firstName = sjcl.encrypt("password", newVal.firstName)
+                storageFactory.store('firstName', newVal.firstName);
+                
+
+                //localStorage.TSLApplication.PersonalForm.firstName = sjcl.encrypt("password", newVal.firstName)
             }
 
         }, true); //true is for multi-level deep-watch fairly CPU expensive, make sure this doesn't get carried away.
